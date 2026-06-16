@@ -1,0 +1,283 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kava Keyul - Personal Portfolio</title>
+    <style>
+        /* Base Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Vibrant animated gradient background to make glassmorphism pop */
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #312e81, #1e1b4b);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Main Container */
+        .portfolio-container {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Glassmorphism Utility Class */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Header Section */
+        header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            text-align: left;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            object-fit: cover;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 5px;
+            background: linear-gradient(90deg, #a855f7, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #cbd5e1;
+        }
+
+        /* Bento Grid Layout for Content */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+
+        .about-section {
+            grid-column: span 8;
+        }
+
+        .education-section {
+            grid-column: span 4;
+        }
+
+        .skills-section {
+            grid-column: span 12;
+        }
+
+        .contact-section {
+            grid-column: span 12;
+        }
+
+        /* Headings inside panels */
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .form-full-width {
+            grid-column: span 2;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #3b82f6;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        button {
+            background: linear-gradient(90deg, #3b82f6, #6366f1);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s, transform 0.2s;
+            grid-column: span 2;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: scale(1.01);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .about-section { grid-column: span 12; }
+            .education-section { grid-column: span 12; }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            header h1 {
+                font-size: 2.2rem;
+            }
+            .bento-grid {
+                display: flex;
+                flex-direction: column;
+            }
+            .contact-form {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-container">
+        
+        <!-- Header Section -->
+        <header class="glass-panel">
+            <img src="kkk.webp" alt="Kava Keyul" class="profile-photo">
+            <div>
+                <h1>Kava Keyul</h1>
+                <h2>IT Diploma Student | Full-Stack Web Developer</h2>
+            </div>
+        </header>
+
+        <!-- Bento Grid Layout -->
+        <main class="bento-grid">
+            
+            <!-- About Me Section -->
+            <section id="about" class="glass-panel about-section">
+                <h3>About Me</h3>
+                <p>Hello! I am an IT Diploma student currently in my 4th semester. I have a strong passion for full-stack web development and creating intuitive, high-performance applications. I enjoy solving complex logic problems and studying enterprise software architectures.</p>
+                <br>
+                <p>Recently, I built <strong>YHHP – Your Home Help Partner</strong>, a centralized home services web application. Beyond coding in HTML, CSS, JavaScript, and ASP.NET, I also have a keen eye for creative image editing and UI design, constantly striving to make my projects stand out.</p>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="glass-panel education-section">
+                <h3>Education</h3>
+                <p><strong>Institution:</strong> GMIU</p>
+                <p><strong>Degree:</strong> IT Diploma</p>
+                <p><strong>Current Status:</strong> Semester 4</p>
+                <br>
+                <p><strong>Key Coursework:</strong> Operating System Architectures, Network Topologies (TCP/IP), Database Design.</p>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="glass-panel skills-section">
+                <h3>Technical Skills</h3>
+                <div class="skills-container">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag">ASP.NET</span>
+                    <span class="skill-tag">ASP.NET Core Web API</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Database Design</span>
+                    <span class="skill-tag">Computer Networking</span>
+                    <span class="skill-tag">Creative Image Editing</span>
+                    <span class="skill-tag">Logic Troubleshooting</span>
+                </div>
+            </section>
+
+            <!-- Contact Form Section -->
+            <section id="contact" class="glass-panel contact-section">
+                <h3>Contact Form</h3>
+                <form class="contact-form" action="#" method="POST">
+                    <input type="text" name="name" placeholder="First Name" required>
+                    <input type="text" name="lastname" placeholder="Last Name" required>
+                    <input type="email" name="email" placeholder="Email Address" class="form-full-width" required>
+                    <textarea name="message" rows="5" placeholder="Enter your message here..." class="form-full-width" required></textarea>
+                    <button type="submit">Submit Details</button>
+                </form>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
